@@ -5,16 +5,16 @@ An end-to-end data product that ingests public Telegram posts from Ethiopian med
 ## Architecture Overview
 
 ```mermaid
-graph TD
-    A[Telegram Channels] -->|Telethon Scraper| B[Data Lake (JSON + Images)]
-    B -->|Load Scripts| C[(PostgreSQL Raw Schema)]
-    C -->|dbt Staging| D[(Staging Layer)]
-    D -->|dbt Marts| E[(Star Schema)]
-    B -->|Images| F[YOLOv8 Detection]
-    F -->|Detections CSV| G[(Image Detection Table)]
-    G -->|dbt| E
-    E -->|SQLAlchemy| H[FastAPI Analytical API]
-    A -->|Dagster Job| I[Pipeline Orchestration]
+graph TD;
+   A["Telegram Channels"] -->|Telethon Scraper| B["Data Lake (JSON + Images)"];
+   B -->|Load Scripts| C["PostgreSQL Raw Schema"];
+   C -->|dbt Staging| D["Staging Layer"];
+   D -->|dbt Marts| E["Star Schema"];
+   B -->|Images| F["YOLOv8 Detection"];
+   F -->|Detections CSV| G["Image Detection Table"];
+   G -->|dbt| E;
+   E -->|SQLAlchemy| H["FastAPI Analytical API"];
+   A -->|Dagster Job| I["Pipeline Orchestration"];
 ```
 
 ## Project Structure
