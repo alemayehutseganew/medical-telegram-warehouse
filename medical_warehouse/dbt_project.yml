@@ -1,0 +1,28 @@
+name: "medical_warehouse"
+version: "1.0.0"
+config-version: 2
+profile: "medical_warehouse"
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+docs-paths: ["docs"]
+asset-paths: ["assets"]
+
+data-paths: ["data"]
+
+depends-on: []
+
+models:
+  medical_warehouse:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table

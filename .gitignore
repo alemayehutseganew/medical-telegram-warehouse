@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.venv/
+venv/
+ENV/
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Data / Secrets
+.env
+.env.*
+logs/
+data/raw/images/*
+data/raw/telegram_messages/*
+data/yolo/*
+!data/yolo/detections_sample.csv
+!data/raw/telegram_messages/**/*.sample.json
+
+# dbt
+medical_warehouse/target/
+medical_warehouse/logs/
+
+# Dagster
+storage/

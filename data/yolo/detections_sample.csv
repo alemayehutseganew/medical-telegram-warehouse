@@ -1,0 +1,4 @@
+message_id,channel_name,image_path,label,confidence,image_category
+101,CheMed,data/raw/images/CheMed/101.jpg,bottle,0.81,product_display
+43,LobeliaCosmetics,data/raw/images/LobeliaCosmetics/43.jpg,person,0.74,lifestyle
+501,TikvahPharma,data/raw/images/TikvahPharma/501.jpg,person,0.67,promotional

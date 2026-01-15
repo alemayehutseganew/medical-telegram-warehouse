@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: raw_layer
+    description: "Raw schema ingested via Python loaders"
+    tables:
+      - name: telegram_messages
+        description: "Raw Telegram payloads"
+        columns:
+          - name: message_id
+            tests:
+              - not_null
+      - name: image_detections
+        description: "YOLO detection outputs loaded from enrichment job"
+        columns:
+          - name: message_id
+            tests:
+              - not_null
+
+models:
+  - name: stg_telegram_messages
+    description: "Cleansed Telegram messages with standardized columns and derived metrics"
+    columns:
+      - name: message_id
+        description: "Natural key from Telegram"
+        tests:
+          - not_null
+          - unique
+      - name: channel_name
+        description: "Normalized channel slug"
+      - name: message_ts
+        description: "UTC timestamp"
+      - name: message_length
+        description: "Character count of message_text"
+      - name: has_image
+        description: "Boolean flag when media exists"
+  - name: stg_image_detections
+    description: "Standardized YOLO inference results"
+    columns:
+      - name: message_id
+        tests:
+          - not_null

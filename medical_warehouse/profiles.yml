@@ -1,0 +1,14 @@
+medical_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: {{ env_var('POSTGRES_HOST', 'localhost') }}
+      user: {{ env_var('POSTGRES_USER', 'warehouse') }}
+      password: {{ env_var('POSTGRES_PASSWORD', 'warehouse') }}
+      port: {{ env_var('POSTGRES_PORT', 5432) }}
+      dbname: {{ env_var('POSTGRES_DB', 'telegram') }}
+      schema: raw
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10
